@@ -19,7 +19,7 @@ app.post(
 			const result = await database.collection(userCollection).add(user)
 			response.status(201).send(`Created a new user: ${result.id}`)
 		} catch (error) {
-			response.status(400).json(error)
+			response.status(400).send(error)
 		}
 	}
 )
@@ -39,7 +39,7 @@ app.post(
 				})
 				response.status(200).json(users)
 			} catch (error) {
-				response.status(500).send(error)
+				response.status(500).send({ error: error })
 			}
 		}
 	)
