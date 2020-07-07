@@ -1,6 +1,6 @@
 import * as express from 'express'
-import { User } from './user-interface'
-import { database, userCollection } from '../index'
+import { User } from '../models/user'
+import { database, userCollection } from '../../index'
 
 const app = express()
 app.post(
@@ -19,11 +19,7 @@ app.post(
 			const result = await database.collection(userCollection).add(user)
 			response.status(201).send(`Created a new user: ${result.id}`)
 		} catch (error) {
-			response
-				.status(400)
-				.send(
-					`User should cointain firstName, lastName, email, areaNumber, department, id and contactNumber!!!`
-				)
+			response.status(400).json(error)
 		}
 	}
 )

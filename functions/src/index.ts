@@ -2,7 +2,7 @@ import * as functions from 'firebase-functions'
 import * as admin from 'firebase-admin'
 import * as bodyParser from 'body-parser'
 import * as express from 'express'
-import app from './user/user-controller'
+import app from './user/controllers/user'
 
 admin.initializeApp(functions.config().firebase)
 
