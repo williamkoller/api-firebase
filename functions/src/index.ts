@@ -29,13 +29,13 @@ interface User {
 app.post('/users', async (req, res) => {
 	try {
 		const user: User = {
-			firstName: req.body['firstName'],
-			lastName: req.body['lastName'],
-			email: req.body['email'],
-			areaNumber: req.body['areaNumber'],
-			department: req.body['department'],
-			id: req.body['id'],
-			contactNumber: req.body['contactNumber'],
+			id: req.body.id,
+			firstName: req.body.firstName,
+			lastName: req.body.lastName,
+			email: req.body.email,
+			areaNumber: req.body.areaNumber,
+			department: req.body.department,
+			contactNumber: req.body.contactNumber,
 		}
 
 		const newDoc = await db.collection(userCollection).add(user)
